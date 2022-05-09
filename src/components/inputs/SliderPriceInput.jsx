@@ -14,9 +14,11 @@ const formatNumber = (val) => {
 
 const SliderPriceInput = (props) => {
 
+    debugger
+
     let inputSize;
     let {min, max, handlePriceChange, currentMin, currentMax } = props.config;
-    let { type } = props;
+    let { type, clickHandler } = props;
 
     let current = null;
 
@@ -47,7 +49,9 @@ const SliderPriceInput = (props) => {
                     style={{ width: `calc( ${inputSize}px - 10px)` }}
                     formatter={(value) => formatNumber(value)}
                     step={step}
-                    className='SliderPriceInput'
+                    className={`SliderPriceInput ${true ? 'active' : ''}`}
+                    onFocus={()=> clickHandler(true)}
+                    onBlur={()=> clickHandler(false)}
                     />
 
         </>

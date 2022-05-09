@@ -15,6 +15,25 @@ import { ReactComponent as Search } from '../../icons/Search.svg';
 
 import { Row, Col, Input, Divider } from 'antd';
 
+const timeToMetro = [
+    {
+      groupName: 'Пешком',
+      items: [
+        { name: 'до 5 мин.', value: '5 foot' },
+        { name: 'до 10 мин.', value: '10 foot' },
+        { name: 'до 15 мин.', value: '15 foot' },
+      ]
+    },
+    {
+      groupName: 'На транспорте',
+      items: [
+        { name: 'до 5 мин.', value: '5 car' },
+        { name: 'до 10 мин.', value: '10 car' },
+        { name: 'до 15 мин.', value: '15 car' },
+      ]
+    }
+  ]
+
 const allEstate = [
     {
         groupName: 'Жилая',
@@ -104,6 +123,15 @@ const facilities = [
     { name: 'Кондиционер', value: 'airConditioning' }
 ]
 
+const features = [
+    { name: 'Можно с животными', value: 'petsAllowed' },
+    { name: 'Для студентов', value: 'forStudents' },
+    { name: 'Стиральная машина', value: 'washingMachine' },
+    { name: 'Можно с детьми', value: 'kidsAllowed' },
+    { name: 'С мебелью', value: 'furnished' },
+    { name: 'Кондиционер', value: 'airConditioning' }
+]
+
 const Rent = (props) => {
 
     return (
@@ -115,13 +143,13 @@ const Rent = (props) => {
                         <Input className="highInput" placeholder="Город, адрес, метро, район или ЖК" prefix={<Search className="inputSearchIcon" />} />
                     </Col>
 
-                    <Col span={12} className='estateCatogory__container'>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24} className='estateCatogory__container'>
 
                         <SelectWithCategories className='grey' content={allEstate} title='Тип недвижимости' />
 
                     </Col>
 
-                    <Col span={12} >
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
 
                         <SelectRoomsCount />
 
@@ -153,34 +181,27 @@ const Rent = (props) => {
                 <Divider />
 
                 <Row gutter={32}>
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <FilterRange title='Общая площадь' measure='м2' />
                     </Col>
 
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <FilterRange title='Жилая площадь' measure='м2' />
                     </Col>
-                </Row>
 
-                <Row gutter={32}>
-
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <FilterRange title='Площадь кухни' measure='м2' />
                     </Col>
 
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <FilterRange title='Высота потолков' measure='м' />
                     </Col>
 
-                </Row>
-
-                <Row gutter={32}>
-
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <SelectOne title={'Санузел'} content={bathroomUnit} />
                     </Col>
 
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <SelectMultiple title={'Ремонт'} content={repair} />
                     </Col>
 
@@ -192,37 +213,27 @@ const Rent = (props) => {
 
                 <Row gutter={32}>
 
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <FilterRange title='Этаж' />
                     </Col>
 
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <FilterRange title='Этажей в доме' />
                     </Col>
 
-                </Row>
-
-
-                <Row gutter={32}>
-
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <SelectOne title='Лифт' content={elevator} />
                     </Col>
 
-
-
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <SelectOne title='Балкон / Лоджия' content={balcony} />
                     </Col>
-                </Row>
 
-                <Row gutter={32}>
-
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <SelectOne title='Вид из окна' content={windowView} />
                     </Col>
 
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <SelectMultiple title='Места рядом' content={placesNearby} />
                     </Col>
                 </Row>
@@ -235,21 +246,32 @@ const Rent = (props) => {
 
                 <Row gutter={32}>
 
-                    <Col span={12}>
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
                         <SelectMultiple title='Ветка метро' content={metroLines} />
                     </Col>
 
-                    <Col span={12}>
-                        !!!!{/* <SelectWithCategories title='До метро' content={timeToMetro} /> */}
+                    <Col xl={12} lg={12} md={12} sm={12} xs={24}>
+                        <SelectWithCategories title='До метро' content={timeToMetro} name={true} />
                     </Col>
 
-                </Row>
-
-                <Row gutter={32}>
-
-                    <CheckboxList title='Удобства' content={facilities} name={true} />
 
                 </Row>
+
+            <div className="filterPopup__block">
+
+                <Divider />
+
+                <CheckboxList title='Удобства' content={facilities} name={true} />
+
+            </div>
+
+            <div className="filterPopup__block">
+                
+                <Divider />
+
+                <CheckboxList title='Особенности' content={features} name={true} />
+
+            </div>
 
             </div>
         </>

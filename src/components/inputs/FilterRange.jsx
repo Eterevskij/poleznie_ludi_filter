@@ -5,6 +5,8 @@ import { Row, Col, InputNumber } from 'antd';
 
 const FilterRange = (props) => {
 
+    const [isFocused, setFocus] = useState(false);
+
     const { title, measure } = props;
 
     const letterSize = 16;
@@ -25,7 +27,7 @@ const FilterRange = (props) => {
                 {measure && <sup className='filterRange__title__TopIndex'>{measure}</sup>}
             </p>
 
-            <div className="filterRange__inputContainer">
+            <div className={`filterRange__inputContainer ${isFocused ? 'active' : ''}`}>
 
                 <div className="filterRange__line"></div>
 
@@ -38,17 +40,19 @@ const FilterRange = (props) => {
                                 className='filterRange__input'
                                 min={0}
                                 controls={false}
-                                onChange={ num => { setCurrentMin(num) }}
+                                onChange={num => { setCurrentMin(num) }}
                                 value={currentMin}
                                 style={{
                                     width: `calc( ${inputSizeMin}px - 8px + 6px )`
                                 }}
-                                />
-                            {(currentMin && measure ) ?
+                                onFocus={()=> setFocus(true)}
+                                onBlur={()=> setFocus(false)}
+                            />
+                            {(currentMin && measure) ?
                                 <sup className='filterRange__measure'>
                                     {measure}
-                                </sup> 
-                                : 
+                                </sup>
+                                :
                                 ''}
                         </div>
                     </Col>
@@ -60,17 +64,19 @@ const FilterRange = (props) => {
                                 className='filterRange__input'
                                 min={0}
                                 controls={false}
-                                onChange={ num => { setCurrentMax(num) }}
+                                onChange={num => { setCurrentMax(num) }}
                                 value={currentMax}
                                 style={{
                                     width: `calc( ${inputSizeMax}px - 8px + 6px )`
                                 }}
-                                 />
-                            {(currentMax && measure ) ?
+                                onFocus={()=> setFocus(true)}
+                                onBlur={()=> setFocus(false)}
+                            />
+                            {(currentMax && measure) ?
                                 <sup className='filterRange__measure'>
                                     {measure}
-                                </sup> 
-                                : 
+                                </sup>
+                                :
                                 ''}
 
                         </div>

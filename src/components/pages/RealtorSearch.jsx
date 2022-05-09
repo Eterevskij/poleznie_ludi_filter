@@ -46,9 +46,11 @@ const dealType = [
 
 const { Option } = Select;
 
-const balcony = [
-    { name: 'Балкон', value: 'balcony' },
-    { name: 'Лоджия', value: 'loggia' },
+const rating = [
+    { name: 'до 5 баллов', value: '5-' },
+    { name: 'до 10 баллов', value: '10-' },
+    { name: 'до 24 баллов', value: '24-' },
+    { name: 'более 24 баллов', value: '24+' },
 ]
 
 const cities = [
@@ -59,33 +61,70 @@ const cities = [
     { name: 'г. Белгород', value: 'Belgorod3' },
 ]
 
-const Rent = (props) => {
+const dealsMade = [
+    { name: 'до 5 сделок', value: '5-' },
+    { name: 'до 10 сделок', value: '10-' },
+    { name: 'до 20 сделок', value: '20-' },
+    { name: 'более 20 сделок', value: '20+' },
+]
+
+const workExperience = [
+    { name: 'до 6 месяцев', value: '6m-' },
+    { name: 'до 1 года', value: '1y-' },
+    { name: 'до 2 лет', value: '2y-' },
+    { name: 'более 2 лет', value: '2y+' },
+]
+
+const Rent = () => {
 
     return (
         <>
-            <div className="filterPopup__block">
+            <div className="filterPopup__block realtorSearch">
 
-                <Row gutter={[16, 16]}>
-                    <Col span={12} >
-                        <SelectOne content={cities} placeholder='Город' className={'grey'}  />
-                    </Col>
+                <div className="realtorSearch__header">
 
-                    <Col span={12}>
+                    <Row gutter={[16, 12]}>
+                        <Col xl={12} lg={12} md={12} sm={12} xs={24} >
+                            <SelectOne content={cities} placeholder='Город' className={'grey'} />
+                        </Col>
 
-                        <Input className='textInput grey' placeholder='ФИО' />
+                        <Col xl={12} lg={12} md={12} sm={12} xs={24} >
 
-                    </Col>
+                            <Input className='textInput grey' placeholder='ФИО' />
 
-                    <Col span={12} >
-                        <Input className='textInput grey' placeholder='Телефон' />
-                    </Col>
+                        </Col>
 
-                    <Col span={12} >
-                        <SelectOne className='grey' content={dealType} title='Тип сделки'  />
-                    </Col>
+                        <Col xl={12} lg={12} md={12} sm={12} xs={24} >
+                            <Input className='textInput grey' placeholder='Телефон' />
+                        </Col>
 
-                </Row>
+                        <Col xl={12} lg={12} md={12} sm={12} xs={24} >
+                            <SelectOne className='grey' content={dealType} />
+                        </Col>
 
+                    </Row>
+
+                </div>
+
+                <div className="filterPopup__block">
+                    <Divider />
+
+                    <Row gutter={32}>
+
+                        <Col xl={12} lg={12} md={12} sm={12} xs={24} >
+                            <SelectOne title='Рейтинг' content={rating} />
+                        </Col>
+
+                        <Col xl={12} lg={12} md={12} sm={12} xs={24}>
+                            <SelectOne title='Сделок проведено' content={dealsMade} />
+                        </Col>
+
+                        <Col span={24}>
+                            <SelectOne title='Опыт работы' content={workExperience} />
+                        </Col>
+
+                    </Row>
+                </div>
 
             </div>
         </>

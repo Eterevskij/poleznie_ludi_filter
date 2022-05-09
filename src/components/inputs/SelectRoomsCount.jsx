@@ -15,6 +15,7 @@ const SelectRoomsCount = () => {
     
     const [lastRoomElem, setLastRoomElem] = useState(-1);
 
+    const [isRoomsFilled, setRoomsFilled] = useState(false);
 
     const { Option } = Select;
 
@@ -61,6 +62,17 @@ const SelectRoomsCount = () => {
 
     }
 
+    const handleRoomsChange = (options) => {
+
+        const optionsCount = options.length;
+    
+        if (optionsCount > 0) {
+            setRoomsFilled(true);
+        } else {
+            setRoomsFilled(false);
+        }
+      }
+
 
     return (
 
@@ -68,20 +80,23 @@ const SelectRoomsCount = () => {
             <div className="roomCount__container">
 
                 <SelectArrow className='estateCatogory__arrow' />
+                
+                <p className={`groupSelect__title ${isRoomsFilled ? 'active' : 'disable'}`}>Количество комнат</p>
 
 
                 <Select
                     mode="multiple"
-                    className='roomCount__wrapper'
+                    className={`roomCount__wrapper ${isRoomsFilled ? 'filled' : ''}`}
                     dropdownClassName='roomCount__dropdown'
                     placeholder='Количество комнат'
                     onSelect={ (selected) => handleSelect(selected)}
                     value = {currentSelects}
                     onDeselect = { (deselected) => handleDeselect(deselected)}
                     optionLabelProp="label"
+                    onChange={handleRoomsChange}
                 >
 
-                    {roomList.map( (item, i) => {
+                    {roomList.map( (item ) => {
 
 
                             if(item !== 'studio') {

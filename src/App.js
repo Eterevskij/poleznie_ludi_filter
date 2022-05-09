@@ -6,6 +6,7 @@ import Buy from './components/pages/Buy';
 import Rent from './components/pages/Rent';
 import RealtorSearch from './components/pages/RealtorSearch';
 
+import { Row, Col, Button, Divider } from 'antd';
 
 
 import { ReactComponent as Close } from './icons/Close.svg';
@@ -45,7 +46,27 @@ function App() {
 
         </div>
 
+        <div className="filterPopup__buttons__wrapper">
+          
+          <Row gutter={[30,0]}>
 
+            <Divider />
+
+            <Col span={7}>
+              <div className="filterPopup__button reset">
+                <Button>Сбросить&nbsp;<span className='filterPopup__button__filterWord'> фильтры</span></Button>
+              </div>
+            </Col>
+
+            <Col span={17}>
+              <div className="filterPopup__button submit">
+                <Button>Подобрать</Button>
+              </div>
+            </Col>
+
+          </Row>
+
+        </div>
 
       </div>
 

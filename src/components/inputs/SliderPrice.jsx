@@ -12,6 +12,10 @@ const SliderPrice = (props) => {
 
     const [currentMin, setCurrentMin] = useState(min);
     const [currentMax, setCurrentMax] = useState(max);
+    const [isMinFocused, setMinFocus] = useState(false);
+    const [isMaxFocused, setMaxFocus] = useState(false);
+
+
 
     const handlePriceChange = (range, slider) => {
 
@@ -46,6 +50,8 @@ const SliderPrice = (props) => {
         currentMax: {currentMax}
     }
 
+    debugger
+
     return (
         <>
             
@@ -56,9 +62,10 @@ const SliderPrice = (props) => {
         <Row className="priceRange__inputsWrapper" gutter={32}>
 
             <Col span={12}>
-                <div className="priceRange__inputsWrapper__inputWrapper">
+                <div className={`priceRange__inputsWrapper__inputWrapper ${isMinFocused ? 'active' : ''}`}>
 
                 <SliderPriceInput 
+                        clickHandler={setMinFocus}
                         config = {inputConfig}
                         type = {'min'}
                         />
@@ -68,11 +75,12 @@ const SliderPrice = (props) => {
             <p className="priceRange__inputsWrapper__dash">–</p>
 
             <Col span={12}>
-                <div className="priceRange__inputsWrapper__inputWrapper">
+                <div className={`priceRange__inputsWrapper__inputWrapper ${isMaxFocused ? 'active' : ''}`}>
 
                     <SliderPriceInput 
                         config = {inputConfig}
                         type = {'max'}
+                        clickHandler={setMaxFocus}
                         />
                     
                 </div>

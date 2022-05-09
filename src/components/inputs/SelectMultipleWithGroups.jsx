@@ -32,7 +32,7 @@ const SelectMultipleWithGroups = (props) => {
   return (
     <div className="estateCatogory__container">
       {name &&
-        <p className='filterRange__title'>{title}</p>
+        <p className='SelectMultipleWithGroups__title'>{title}</p>
       }
 
       <div className="estateCatogory__wrapper">
@@ -79,7 +79,7 @@ const SelectMultipleWithGroups = (props) => {
           {content[category].items.map(item => {
             debugger
             return (
-              <Option value={item.value} label={item.name.slice(0, 2)} className='groupSelect__option'>
+              <Option value={item.value} label={item.name} className='groupSelect__option'>
                 <span className="groupSelect__option__checkbox__wrapper">
                   <span className="groupSelect__option__checkbox disable"></span>
 

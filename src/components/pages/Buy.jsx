@@ -107,7 +107,7 @@ const metroLines = [
   { name: 'Волковская', value: 'Volkovskaya2' }
 ]
 
-const Buy = (props) => {
+const Buy = () => {
 
   return (
     <>
@@ -118,13 +118,13 @@ const Buy = (props) => {
             <Input className="highInput grey" placeholder="Город, адрес, метро, район или ЖК" prefix={<Search className="inputSearchIcon" />} />
           </Col>
 
-          <Col span={12} className='estateCatogory__container'>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24} className='estateCatogory__container'>
 
             <SelectWithCategories className='grey' content={allEstate} title='Тип недвижимости' />
 
           </Col>
 
-          <Col span={12} >
+          <Col xl={12} lg={12} md={12} sm={12} xs={24} >
 
             <SelectRoomsCount />
 
@@ -146,34 +146,27 @@ const Buy = (props) => {
         <Divider />
 
         <Row gutter={32}>
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24} >
             <FilterRange title='Общая площадь' measure='м2' />
           </Col>
 
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <FilterRange title='Жилая площадь' measure='м2' />
           </Col>
-        </Row>
 
-        <Row gutter={32}>
-
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <FilterRange title='Площадь кухни' measure='м2' />
           </Col>
 
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <FilterRange title='Высота потолков' measure='м' />
           </Col>
 
-        </Row>
-
-        <Row gutter={32}>
-
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <SelectOne title={'Санузел'} content={bathroomUnit} />
           </Col>
 
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <SelectMultiple title={'Ремонт'} content={repair} />
           </Col>
 
@@ -185,37 +178,27 @@ const Buy = (props) => {
 
         <Row gutter={32}>
 
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <FilterRange title='Этаж' />
           </Col>
 
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <FilterRange title='Этажей в доме' />
           </Col>
 
-        </Row>
-
-
-        <Row gutter={32}>
-
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <SelectOne title='Лифт' content={elevator} />
           </Col>
 
-
-
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <SelectOne title='Балкон / Лоджия' content={balcony} />
           </Col>
-        </Row>
 
-        <Row gutter={32}>
-
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <SelectOne title='Вид из окна' content={windowView} />
           </Col>
 
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <SelectMultiple title='Места рядом' content={placesNearby} />
           </Col>
         </Row>
@@ -228,11 +211,11 @@ const Buy = (props) => {
 
         <Row gutter={32}>
 
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <SelectMultiple title='Ветка метро' content={metroLines} />
           </Col>
 
-          <Col span={12}>
+          <Col xl={12} lg={12} md={12} sm={12} xs={24}>
             <SelectWithCategories title='До метро' content={timeToMetro} name={true} />
           </Col>
 

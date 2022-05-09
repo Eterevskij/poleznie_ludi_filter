@@ -15,11 +15,13 @@ h1, h2, h3, h4, h5, h6, p {
 .filterPopup {
   font-family: Inter;
   max-width: 864px;
+  position: relative;
   width: 100%;
   margin: 0 auto;
   background: #fff;
   padding: 48px;
   border-radius: 16px;
+  overflow: hidden;
 }
 
 .ant-select-dropdown {
@@ -71,6 +73,20 @@ h1, h2, h3, h4, h5, h6, p {
 
 .filterPopup__content {
   margin-top: 24px;
+  max-height: 60vh;
+  overflow-x: hidden;
+}
+
+.filterPopup__content::-webkit-scrollbar {
+  width: 14px;
+}
+.filterPopup__content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.filterPopup__content::-webkit-scrollbar-thumb {
+  background-color: #BCBEC0;
+  border-radius: 20px;
+  border: 3px solid #fff;
 }
 
 .highInput {
@@ -324,6 +340,7 @@ h1, h2, h3, h4, h5, h6, p {
 .groupSelect .ant-select-selection-overflow-item .ant-select-selection-item-content {
   color: #2B2B2B;
   font-weight: 400;
+  font-size: 16px;
 }
 
 .groupSelect .ant-select-selection-overflow-item::after {
@@ -787,7 +804,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .selectOne {
   border: 1px solid #BCBEC0;
-  border-radius: 8px;
+  border-radius: 8px !important;
 }
 
 .selectOne .ant-select-selection-placeholder {
@@ -813,6 +830,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 .selectOne .ant-select-selector {
   background: transparent !important;
+}
+
+.selectOne.grey .ant-select-selector {
+  border-radius: 8px !important;
 }
 
 .selectOne__item__icon {
@@ -921,7 +942,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .roomCount__wrapper .ant-select-selection-search-input {
-  margin-left: 5px !important;
+  margin-left: 8px !important;
 }
 
 .SliderPriceInput .SliderPriceInput {
@@ -974,47 +995,42 @@ h1, h2, h3, h4, h5, h6, p {
 .filterRange__inputWrapper .ant-input-number-group-addon {
   background: none;
   border: none;
-  color:red;
   padding: 0 !important;
 }
 
-.highInput .ant-input::placeholder  {
+.highInput .ant-input::placeholder {
   color: #4F4F4F !important;
-}
-
-.selectOne .ant-select-selection-placeholder::placeholder  {
-  color: red !important;
 }
 
 .groupSelect .ant-select-selection-overflow-item {
   position: relative;
 }
 
-.roomCount__wrapper  .ant-select-selection-overflow-item .ant-select-selection-item-content {
+.roomCount__wrapper .ant-select-selection-overflow-item .ant-select-selection-item-content {
   color: #2B2B2B;
   font-weight: 400;
 }
 
-.roomCount__wrapper  .ant-select-selection-overflow-item::after {
+.roomCount__wrapper .ant-select-selection-overflow-item::after {
   position: absolute;
   content: ',';
   bottom: 2px;
   right: 6px;
 }
 
-.roomCount__wrapper  .ant-select-selection-overflow-item.ant-select-selection-overflow-item-suffix::after {
+.roomCount__wrapper .ant-select-selection-overflow-item.ant-select-selection-overflow-item-suffix::after {
   content: '';
 }
 
-.roomCount__wrapper  .ant-select-selection-overflow-item:nth-last-child(2):after {
+.roomCount__wrapper .ant-select-selection-overflow-item:nth-last-child(2):after {
   content: ''
 }
 
-.roomCount__wrapper  .ant-select-selection-item {
+.roomCount__wrapper .ant-select-selection-item {
   padding-left: 0;
 }
 
-.roomCount__wrapper  .ant-select-selection-overflow-item.ant-select-selection-overflow-item-rest .ant-select-selection-item {
+.roomCount__wrapper .ant-select-selection-overflow-item.ant-select-selection-overflow-item-rest .ant-select-selection-item {
   display: none;
 }
 
@@ -1077,8 +1093,313 @@ h1, h2, h3, h4, h5, h6, p {
 
 .grey.ant-select-open {
   background: transparent;
+  border: 1px solid #4DB663;
 }
 
-.grey .ant-select-selector{
+.roomCount__wrapper.ant-select-open .ant-select-selector {
+  background: transparent !important;
+}
+
+.grey .ant-select-selector {
   background: #F4F4F4 !important;
+}
+
+.filterPopup__button button {
+  width: 100%;
+  height: 48px;
+  border: none !important;
+  border-radius: 8px;
+}
+
+.filterPopup__button.reset button {
+  background: #F4F4F4;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2b2b2b;
+}
+
+.filterPopup__button.submit button {
+  background: #4DB663;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.filterPopup {
+  padding-bottom: 20px;
+  padding-right: 0;
+}
+
+.filterPopup__content .filterPopup__block {
+  padding-right: 43px;
+} 
+
+.filterPopup__buttons__wrapper {
+  padding-right: 43px;
+}
+
+.SelectMultipleWithGroups__title {
+  margin-top: 24px;
+  color: #2b2b2b;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.groupSelect {
+  margin-top: 7px;
+}
+
+.groupSelect .ant-select-selector {
+  height: 48px;
+  border: 1px solid #BCBEC0ed !important;
+}
+
+.groupSelect.grey {
+  margin-top: 0;
+}
+
+.groupSelect.grey .ant-select-selector {
+  height: 100%;
+  border: none !important;
+}
+
+.textInput.grey::placeholder {
+  color: #4F4F4F;
+}
+
+.roomCount__wrapper .ant-select-selection-overflow {
+  margin-left: 10px !important;
+  transition: 0.3s all;
+}
+
+.roomCount__wrapper.filled .ant-select-selection-overflow {
+  transform: translateY(10px);
+}
+
+.SelectMultiple .ant-select-selector .ant-select-selection-overflow {
+  margin-left: 4px;
+}
+
+.SelectMultiple .ant-select-selection-overflow {
+  margin-left: 4px;
+}
+
+.SelectMultiple .ant-select-selection-search-input {
+  margin-left: -5px !important;
+}
+
+.SelectMultiple .ant-select-selection-placeholder {
+  color: #7a7a7a;
+  font-family: Inter;
+  font-size: 16px;
+}
+
+.realtorSearch__header .filterRange {
+  margin-top: 0;
+}
+
+.realtorSearch__header .filterRange .selectOne__wrapper {
+  margin-top: 0;
+}
+
+.realtorSearch__header .grey {
+  height: 56px;
+}
+
+.checkboxList__title {
+  color: #2b2b2b;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.checkboxList__wrappeer {
+  margin-top: 32px;
+}
+
+.heckboxList__list {
+  margin-top: 24px;
+}
+
+.filterCheckbox .ant-checkbox-inner {
+  border-radius: 4px;
+}
+
+.textInput::placeholder {
+  color: #4f4f4f;
+  font-family: Inter;
+}
+
+.realtorSearch__header .selectOne__wrapper .ant-select-selection-placeholder {
+  font-size: 14px;
+  color: #4f4f4f;
+}
+
+.realtorSearch__header .selectOne .ant-select-selector {
+  height: 100% !important;
+} 
+
+.grey.ant-select-open .ant-select-selector {
+  background: transparent !important;
+}
+
+.textInput.grey:focus {
+  background: transparent !important;
+  border: 2px solid #4DB663;
+}
+
+.priceRange__inputsWrapper__inputWrapper {
+  transition: border 0.3s;
+}
+
+.priceRange__inputsWrapper__inputWrapper.active {
+  border: 2px solid #4DB663;
+}
+
+.filterRange__inputContainer {
+  transition: border 0.3s;
+}
+
+.filterRange__inputContainer.active {
+  border: 1px solid #4DB663;
+}
+
+@media (max-width: 768px) {
+
+  .filterPopup {
+    padding: 16px;
+    padding-bottom: 32px;
+  }
+
+  .filterPopup__button__filterWord {
+    display: none !important;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .closeBtn {
+    display: none;
+  }
+
+  .filterPopup__button button {
+    height: 40px;
+  }
+
+  .filterPopup__button button span {
+    font-size: 14px;
+  }
+
+  .filterCheckbox {
+    font-size: 14px;
+  }
+
+  .heckboxList__list {
+    row-gap: 12px !important;
+  }
+
+  .heckboxList__list {
+    margin-top: 16px;
+  }
+
+  .filterPopup__block {
+    margin-top: 32px !important;
+  }
+
+  .highInput .ant-input {
+    font-size: 14px;
+  }
+
+  .groupSelect .ant-select-selection-placeholder {
+    font-size: 14px;
+  }
+
+  .roomCount__wrapper  .ant-select-selection-placeholder {
+    font-size: 14px;
+  }
+
+  .inputName {
+    font-size: 14px;
+  }
+
+  .SliderPrice__inputTitle {
+    font-size: 12px;
+  }
+
+  .ant-input-number .ant-input-number-input {
+    font-size: 14px;
+  }
+
+  .SliderPriceInput .ant-input-number-group-addon {
+    font-size: 14px !important;
+  }
+
+  .selectOne .ant-select-selection-placeholder {
+    font-size: 14px;
+  }
+
+  .selectOne .ant-select-selection-placeholder {
+    font-size: 14px;
+  }
+
+  .SelectMultiple .SelectMultiple__item__text {
+    font-size: 14px;
+  }
+
+  .filterRange__title {
+    font-size: 14px;
+  }
+
+  .filterPopup__pages__item {
+    font-size: 13px;
+  }
+
+  .selectOne  .ant-select-selection-item {
+    font-size: 14px;
+  }
+
+  .groupSelect .ant-select-selection-item-content {
+    font-size: 14px !important;
+  }
+
+  .groupSelect__changeGroupButtons__button {
+    font-size: 14px;
+  }
+
+  .groupSelect__option__text {
+    font-size: 14px;
+  }
+
+  .SelectMultipleWithGroups__title {
+    font-size: 14px;
+  }
+
+  .filterPopup__block {
+    margin-top: 16px;
+  }
+
+  .filterPopup {
+    padding-right: 0;
+  }
+
+  .filterPopup__content .filterPopup__block {
+    padding-right: 16px;
+  } 
+  
+  .filterPopup__buttons__wrapper {
+    padding-right: 16px;
+  }
+
+  .filterPopup__buttons__wrapper .ant-row {
+    margin-left: -6px !important;
+    margin-right: -6px !important;
+  }
+
+  .filterPopup__buttons__wrapper .ant-col {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
 }
